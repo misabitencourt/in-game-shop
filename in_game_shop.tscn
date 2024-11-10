@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://cadav80771coe"]
+
+[ext_resource type="Script" path="res://in_game_shop.gd" id="1_dbfse"]
+[ext_resource type="Texture2D" uid="uid://cmkm07k6f0cg8" path="res://sprites/background.jpeg" id="1_mktly"]
+[ext_resource type="Texture2D" uid="uid://cce08dhjvsgn2" path="res://sprites/panel.png" id="2_7105e"]
+[ext_resource type="Texture2D" uid="uid://cjn28sais0xiw" path="res://sprites/coin.png" id="3_143ii"]
+[ext_resource type="Texture2D" uid="uid://bvthai4s01f6l" path="res://sprites/selection.png" id="3_rmeu2"]
+[ext_resource type="Texture2D" uid="uid://b3pto06dv1a4t" path="res://sprites/dialog.png" id="4_gcbp2"]
+[ext_resource type="AudioStream" uid="uid://bdudmw27b25xr" path="res://audio/pop.mp3" id="7_j4eaj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w4y1t"]
+blend_mode = 2
+
+[node name="InGameShop" type="Node2D"]
+script = ExtResource("1_dbfse")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.45098)
+position = Vector2(544, 335)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_mktly")
+
+[node name="MenuLeft" type="Node2D" parent="."]
+position = Vector2(56, 172)
+
+[node name="Background" type="Sprite2D" parent="MenuLeft"]
+position = Vector2(208.5, 214)
+scale = Vector2(0.791667, 0.82)
+texture = ExtResource("2_7105e")
+
+[node name="Item" type="Label" parent="MenuLeft"]
+visible = false
+offset_left = 42.0
+offset_top = 34.0
+offset_right = 120.0
+offset_bottom = 57.0
+scale = Vector2(1.6, 1.6)
+text = "Item Here"
+
+[node name="MenuRight" type="Node2D" parent="."]
+position = Vector2(679, 172)
+
+[node name="Background" type="Sprite2D" parent="MenuRight"]
+position = Vector2(208.5, 214)
+scale = Vector2(0.791667, 0.82)
+texture = ExtResource("2_7105e")
+
+[node name="Item" type="Label" parent="MenuRight"]
+visible = false
+offset_left = 42.0
+offset_top = 34.0
+offset_right = 120.0
+offset_bottom = 57.0
+scale = Vector2(1.6, 1.6)
+text = "Item Here"
+
+[node name="Selection" type="Sprite2D" parent="MenuRight"]
+position = Vector2(210, 53)
+scale = Vector2(1.24, 1)
+texture = ExtResource("3_rmeu2")
+
+[node name="CoinPanel" type="Node2D" parent="."]
+position = Vector2(502, 245)
+
+[node name="Background" type="Sprite2D" parent="CoinPanel"]
+position = Vector2(78, 24)
+scale = Vector2(0.315833, 0.0933333)
+texture = ExtResource("2_7105e")
+
+[node name="Label" type="Label" parent="CoinPanel"]
+offset_left = 44.0
+offset_right = 84.0
+offset_bottom = 23.0
+scale = Vector2(1.825, 1.825)
+text = "0000"
+horizontal_alignment = 1
+
+[node name="Coin" type="Sprite2D" parent="CoinPanel"]
+position = Vector2(-24, -21)
+scale = Vector2(2, 2)
+texture = ExtResource("3_143ii")
+offset = Vector2(23, 22)
+
+[node name="SalesmanDialog" type="Node2D" parent="."]
+visible = false
+position = Vector2(403, 498)
+
+[node name="Background" type="Sprite2D" parent="SalesmanDialog"]
+position = Vector2(165, 68)
+texture = ExtResource("4_gcbp2")
+
+[node name="Label" type="Label" parent="SalesmanDialog"]
+material = SubResource("CanvasItemMaterial_w4y1t")
+offset_left = 99.0
+offset_top = 25.0
+offset_right = 160.0
+offset_bottom = 48.0
+scale = Vector2(2.3, 2.3)
+text = "Thanks!"
+
+[node name="PopAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_j4eaj")
